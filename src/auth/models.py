@@ -1,18 +1,13 @@
-
 from fastapi_users.db import SQLAlchemyBaseUserTable
-from sqlalchemy.orm import DeclarativeBase
-from sqlalchemy import Boolean, Integer, String
+from base import Base
+from sqlalchemy import Boolean, ForeignKey, Integer, String
 from sqlalchemy.orm import Mapped, mapped_column
-from config import DB_HOST, DB_NAME, DB_PASS, DB_PORT, DB_USER
-
-DATABASE_URL = f'postgresql+asyncpg://{DB_USER}:{DB_PASS}@{DB_HOST}:{DB_PORT}/{DB_NAME}'
-
-
-class Base(DeclarativeBase):
-    pass
+from sqlalchemy.orm import relationship
 
 
 class User(SQLAlchemyBaseUserTable[int], Base):
+    __tablename__ = "user"
+
     id: Mapped[int] = mapped_column(
             Integer, primary_key=True
         )
@@ -29,3 +24,5 @@ class User(SQLAlchemyBaseUserTable[int], Base):
     is_verified: Mapped[bool] = mapped_column(
             Boolean, default=False, nullable=False
         )
+    salary_id: Mapped[int] = mapped_column(ForeignKey("salary.id"))
+    salary: Mapped["Salary"] = relationship(back_populates="user")

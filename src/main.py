@@ -1,11 +1,13 @@
 
-from fastapi import Depends, FastAPI
+from fastapi import FastAPI
 from fastapi_users import FastAPIUsers
 
 from auth.models import User
 from auth.auth import auth_backend
 from auth.schemas import UserRead, UserCreate
 from auth.manager import get_user_manager
+
+from auth.router import router as user_router
 
 app = FastAPI()
 
@@ -27,9 +29,4 @@ app.include_router(
     tags=["auth"],
 )
 
-current_user = fastapi_users.current_user()
-
-
-@app.get("/protected-route")
-def protected_route(user: User = Depends(current_user)) -> str:
-    return f"Hello, {user.is_superuser}"
+app.include_router(user_router)

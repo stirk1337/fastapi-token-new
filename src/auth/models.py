@@ -1,8 +1,9 @@
+from datetime import date
+
 from fastapi_users.db import SQLAlchemyBaseUserTable
 from base import Base
-from sqlalchemy import Boolean, ForeignKey, Integer, String
+from sqlalchemy import Boolean, Integer, String
 from sqlalchemy.orm import Mapped, mapped_column
-from sqlalchemy.orm import relationship
 
 
 class User(SQLAlchemyBaseUserTable[int], Base):
@@ -24,5 +25,5 @@ class User(SQLAlchemyBaseUserTable[int], Base):
     is_verified: Mapped[bool] = mapped_column(
             Boolean, default=False, nullable=False
         )
-    salary_id: Mapped[int] = mapped_column(ForeignKey("salary.id"))
-    salary: Mapped["Salary"] = relationship(back_populates="user")
+    salary: Mapped[float]
+    date_on_next_increase: Mapped[date]

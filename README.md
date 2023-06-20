@@ -5,30 +5,29 @@
 Установите менеджер зависимостей Poetry
 
 ```console
-foo@bar:~$ whoami
-foo
+root@stirk1337:~$ pip install poetry
 ```
 
 Установите зависимости
 
----bash
-poetry install
----
+```console
+root@stirk1337:~$ poetry install
+```
 
 Запустите базу данных PostgreSQL 15 и настройте коннект в файле .env.
 (Я знаю что пушить файлы .env нельзя, сделал это для удобства проверки)
 
 Перейдите в директорию src
 
----bash
-cd src
----
+```console
+root@stirk1337:~$ cd src
+```
 
 Запустите приложение
 
----bash
-poetry run uvicorn main:app
----
+```console
+root@stirk1337:~$ poetry run uvicorn main:app
+```
 
 Приложение будет доступно на http://127.0.0.1:8000/
 
@@ -38,8 +37,8 @@ poetry run uvicorn main:app
 
 Запустите приложение 
 
----bash
-docker-compose up
----
+```console
+root@stirk1337:~$ docker-compose up
+```
 
 Приложение будет доступно на http://127.0.0.1:8000/

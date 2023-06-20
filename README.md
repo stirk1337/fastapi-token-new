@@ -4,9 +4,10 @@
 
 Установите менеджер зависимостей Poetry
 
----bash
-pip install poetry
----
+```console
+foo@bar:~$ whoami
+foo
+```
 
 Установите зависимости
 

@@ -2,20 +2,13 @@
 
 ## Запуск без docker-compose
 
-Установите менеджер зависимостей Poetry
-
-```console
-root@stirk1337:~$ pip install poetry
-```
-
 Установите зависимости
 
 ```console
-root@stirk1337:~$ poetry install
+root@stirk1337:~$ pip install -r requirements.txt
 ```
 
-Запустите базу данных PostgreSQL 15 и настройте коннект в файле .env.
-(Я знаю что пушить файлы .env нельзя, сделал это для удобства проверки)
+Запустите базу данных PostgreSQL 15 и настройте коннект в файле .env
 
 Перейдите в директорию src
 
@@ -26,7 +19,7 @@ root@stirk1337:~$ cd src
 Запустите приложение
 
 ```console
-root@stirk1337:~$ poetry run uvicorn main:app
+root@stirk1337:~$ python3 main.py
 ```
 
 Приложение будет доступно на http://127.0.0.1:8000/
@@ -54,5 +47,5 @@ root@stirk1337:~$ docker-compose up
 Запуск тестов
 
 ```console
-root@stirk1337:~$ poetry run pytest tests
+root@stirk1337:~$ pytest tests
 ```

@@ -1,0 +1,9 @@
+aioredis==2.0.1
+alembic~=1.11.3
+fastapi~=0.101.1
+httpx~=0.24.1
+pydantic~=2.1.1
+pytest~=7.4.0
+redis==5.0.0
+SQLAlchemy~=2.0.20
+uvicorn~=0.23.2

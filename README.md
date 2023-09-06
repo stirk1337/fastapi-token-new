@@ -56,4 +56,3 @@ root@stirk1337:~$ docker-compose up
 ```console
 root@stirk1337:~$ poetry run pytest tests
 ```
-
